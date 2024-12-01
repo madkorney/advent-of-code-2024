@@ -1,0 +1,43 @@
+:root {
+  --num-col: 140;
+  --num-row: 140;
+  --gap: 1px;
+  --w-unit: calc((80vw - var(--num-col) * var(--gap))/ var(--num-col));
+  --h-unit: calc((80vh - var(--num-row) * var(--gap))/ var(--num-row));
+}
+.controls {
+  width: 80vw;
+  height: 10vh;
+  margin: 0 auto;
+  border: 1px solid #cccccc;
+}
+
+.partsContainer {
+  width: 80vw;
+  height: 80vh;
+  margin: 0 auto;
+  margin-top: 4px;
+  border: 1px solid #cbcbcb;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.part {
+  height: var(--h-unit);
+  /* border: 1px solid red; */
+  background-color: green;
+}
+
+.size1u {
+  width: calc(var(--w-unit) * 1);
+}
+
+.size2u {
+  width: calc(var(--w-unit) * 2);
+}
+
+.size3u {
+  width: calc(var(--w-unit) * 3);
+}
