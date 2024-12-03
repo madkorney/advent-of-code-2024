@@ -1,75 +1,36 @@
 import { getInputDataForDay, getTestADataForDay, getTestBDataForDay } from '../util/index.js';
 
-const DAY_NUMBER = 3;
+const DAY_NUMBER = 1;
 const DAY_NUMBER_FORMATTED = DAY_NUMBER.toString(10).padStart(2, '0');
-const TEST_ANSWER_A = 161;
-const TEST_ANSWER_B = 48;
+const TEST_ANSWER_A = 0;
+const TEST_ANSWER_B = 0;
 
-// ======= Day 03 ======
+// ======= Day 01 ======
 
-const transformInputDataA = (inputData: string[]) => {
-  const pairs: number[][] = [];
-
-  inputData.forEach((line) => {
-    Array.from(line.matchAll(/mul\(\d{1,3},\d{1,3}\)/gim)).forEach((regexMatch) => {
-      const match = regexMatch[0];
-      const pair = match.slice(4, match.indexOf(')')).split(',').map(Number);
-      pairs.push(pair);
-    });
-  });
-  return pairs;
-};
-
-const transformInputDataB = (inputData: string[]) => {
-  const DO = 'do()';
-  const DONT = "don't()";
-  const pairs: number[][] = [];
-  const matches: string[] = [];
-
-  inputData.forEach((line) => {
-    Array.from(line.matchAll(/mul\(\d{1,3},\d{1,3}\)|don't\(\)|do\(\)/gim)).forEach((regexMatch) =>
-      matches.push(regexMatch[0])
-    );
-  });
-  let isMulEnabled = true;
-  matches.forEach((match) => {
-    if (match === DONT) isMulEnabled = false;
-    if (match === DO) isMulEnabled = true;
-    if (isMulEnabled && match.charAt(0) === 'm') {
-      const pair = match.slice(4, match.indexOf(')')).split(',').map(Number);
-      pairs.push(pair);
-    }
-  });
-  return pairs;
+const transformInputData = (inputData: string[]) => {
+  //parse input if required
+  return inputData;
 };
 
 const taskA = (inputData: string[], option?: string): number => {
-  const data = transformInputDataA(inputData);
+  const data = transformInputData(inputData);
   const timer = option ? `TaskA ${option}` : 'TaskA';
   console.time(timer);
 
-  let answer = 0;
-  data.forEach((pair) => {
-    answer += pair[0] * pair[1];
-  });
+  const answer = data.length; // your solution here
 
   console.timeEnd(timer);
-  option && console.log(data);
   return answer;
 };
 
 const taskB = (inputData: string[], option?: string): number => {
-  const data = transformInputDataB(inputData);
+  const data = transformInputData(inputData);
   const timer = option ? `TaskB ${option}` : 'TaskB';
   console.time(timer);
 
-  let answer = 0;
-  data.forEach((pair) => {
-    answer += pair[0] * pair[1];
-  });
+  const answer = data.length; // your solution here
 
   console.timeEnd(timer);
-  option && console.log(data);
   return answer;
 };
 

@@ -1,0 +1,1 @@
+this file should be in the daily puzzle folder and contain test example from puzzle conditions, part B if any or be empty

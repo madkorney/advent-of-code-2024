@@ -1,3 +1,6 @@
 /support
 node_modules
 .vscode
+input.txt
+testA.txt
+testB.txt

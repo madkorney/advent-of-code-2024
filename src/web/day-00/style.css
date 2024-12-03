@@ -1,20 +1,22 @@
 :root {
+  --container-width: 80vw;
+  --container-height: 80vh;
   --num-col: 140;
   --num-row: 140;
   --gap: 1px;
-  --w-unit: calc((80vw - var(--num-col) * var(--gap))/ var(--num-col));
-  --h-unit: calc((80vh - var(--num-row) * var(--gap))/ var(--num-row));
+  --w-unit: calc((var(--container-width) - var(--num-col) * var(--gap))/ var(--num-col));
+  --h-unit: calc((var(--container-height) - var(--num-row) * var(--gap))/ var(--num-row));
 }
 .controls {
-  width: 80vw;
+  width: var(--container-width);
   height: 10vh;
   margin: 0 auto;
   border: 1px solid #cccccc;
 }
 
 .partsContainer {
-  width: 80vw;
-  height: 80vh;
+  width: var(--container-width);
+  height: var(--container-height);
   margin: 0 auto;
   margin-top: 4px;
   border: 1px solid #cbcbcb;
