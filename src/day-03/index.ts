@@ -32,8 +32,7 @@ const transformInputDataB = (inputData: string[]) => {
     );
   });
   let isMulEnabled = true;
-  matches.forEach((item) => {
-    const match = item[0];
+  matches.forEach((match) => {
     if (match === DONT) isMulEnabled = false;
     if (match === DO) isMulEnabled = true;
     if (isMulEnabled && match.charAt(0) === 'm') {
