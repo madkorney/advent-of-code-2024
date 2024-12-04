@@ -11,7 +11,7 @@ const transformInputData = (inputData: string[]) => {
   const data: string[][] = [];
   inputData.forEach((line) => {
     data.push(line.split(''));
-  })
+  });
   return data;
 };
 
@@ -29,13 +29,15 @@ const taskA = (inputData: string[], option?: string): number => {
     const XMAS = ['X', 'M', 'A', 'S'];
     let xmasQty = 0;
 
-    const hasXmas = (x: number, dx: number, y: number,  dy: number) => {
-      if (dx === 0 && dy === 0 ||
-          x + dx * 3 < 0 ||
-          y + dy * 3 < 0 ||
-          x + dx * 3 > sizeX ||
-          y + dy * 3 > sizeY
-         ) return false;
+    const hasXmas = (x: number, dx: number, y: number, dy: number) => {
+      if (
+        (dx === 0 && dy === 0) ||
+        x + dx * 3 < 0 ||
+        y + dy * 3 < 0 ||
+        x + dx * 3 > sizeX ||
+        y + dy * 3 > sizeY
+      )
+        return false;
 
       let itsXmas = true;
       for (let k = 0; k < 4; k++) {
@@ -43,11 +45,11 @@ const taskA = (inputData: string[], option?: string): number => {
       }
 
       return itsXmas;
-    }
+    };
 
     for (let dy = -1; dy <= 1; dy++) {
       for (let dx = -1; dx <= 1; dx++) {
-        if (hasXmas(x, dx, y,  dy)) xmasQty += 1;
+        if (hasXmas(x, dx, y, dy)) xmasQty += 1;
       }
     }
 
@@ -57,7 +59,7 @@ const taskA = (inputData: string[], option?: string): number => {
   let totalXmas = 0;
   for (let j = 0; j <= sizeY; j++) {
     for (let i = 0; i <= sizeX; i++) {
-      totalXmas += getXmasQty(i , j);
+      totalXmas += getXmasQty(i, j);
     }
   }
 
@@ -80,11 +82,11 @@ const taskB = (inputData: string[], option?: string): number => {
       return false;
     }
 
-    const diag1 = data[y -1][x - 1] + data[y][x] + data[y + 1][x + 1];
-    const diag2 = data[y -1][x + 1] + data[y][x] + data[y + 1][x - 1];
+    const diag1 = data[y - 1][x - 1] + data[y][x] + data[y + 1][x + 1];
+    const diag2 = data[y - 1][x + 1] + data[y][x] + data[y + 1][x - 1];
 
-    return (diag1 === 'MAS' || diag1 === 'SAM') && (diag2 === 'MAS' || diag2 === 'SAM')
-  }
+    return (diag1 === 'MAS' || diag1 === 'SAM') && (diag2 === 'MAS' || diag2 === 'SAM');
+  };
 
   let totalXmas = 0;
   for (let j = 0; j <= sizeY; j++) {
