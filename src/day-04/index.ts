@@ -83,10 +83,10 @@ const taskB = (inputData: string[], option?: string): number => {
       return false;
     }
 
-    const diag1 = data[y - 1][x - 1] + data[y][x] + data[y + 1][x + 1];
-    const diag2 = data[y - 1][x + 1] + data[y][x] + data[y + 1][x - 1];
+    const diag1 = data[y - 1][x - 1] + data[y + 1][x + 1];
+    const diag2 = data[y - 1][x + 1] + data[y + 1][x - 1];
 
-    return (diag1 === 'MAS' || diag1 === 'SAM') && (diag2 === 'MAS' || diag2 === 'SAM');
+    return (diag1 === 'MS' || diag1 === 'SM') && (diag2 === 'MS' || diag2 === 'SM');
   };
 
   let totalXmas = 0;
