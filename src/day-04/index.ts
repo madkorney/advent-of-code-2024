@@ -41,7 +41,10 @@ const taskA = (inputData: string[], option?: string): number => {
       let itsXmas = true;
       for (let k = 1; k < 4; k++) {
         // skip k = 0 , where we definetely have 'X' so we only check for 'M-A-S'
-        if (itsXmas && data[y + dy * k][x + dx * k] !== XMAS[k]) itsXmas = false;
+        if (data[y + dy * k][x + dx * k] !== XMAS[k]) {
+          itsXmas = false; // хуй вам, а не крисмас
+          break;
+        }
       }
 
       return itsXmas;
