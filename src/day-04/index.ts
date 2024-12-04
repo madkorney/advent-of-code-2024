@@ -26,9 +26,6 @@ const taskA = (inputData: string[], option?: string): number => {
   const getXmasQty = (x: number, y: number): number => {
     if (data[y][x] !== 'X') return 0;
 
-    const XMAS = ['X', 'M', 'A', 'S'];
-    let xmasQty = 0;
-
     const hasXmas = (x: number, dx: number, y: number, dy: number) => {
       if (
         (dx === 0 && dy === 0) ||
@@ -36,17 +33,21 @@ const taskA = (inputData: string[], option?: string): number => {
         y + dy * 3 < 0 ||
         x + dx * 3 > sizeX ||
         y + dy * 3 > sizeY
-      )
+      ) {
         return false;
+      }
 
+      const XMAS = ['X', 'M', 'A', 'S'];
       let itsXmas = true;
-      for (let k = 0; k < 4; k++) {
+      for (let k = 1; k < 4; k++) {
+        // skip k = 0 , where we definetely have 'X' so we only check for 'M-A-S'
         if (itsXmas && data[y + dy * k][x + dx * k] !== XMAS[k]) itsXmas = false;
       }
 
       return itsXmas;
     };
 
+    let xmasQty = 0;
     for (let dy = -1; dy <= 1; dy++) {
       for (let dx = -1; dx <= 1; dx++) {
         if (hasXmas(x, dx, y, dy)) xmasQty += 1;
